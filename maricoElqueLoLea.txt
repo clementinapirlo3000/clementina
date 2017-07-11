@@ -28,7 +28,8 @@ El flujo de trabajo básico en Git es algo así:
 
 Modificas una serie de archivos en tu directorio de trabajo.
 Preparas los archivos, añadiendolos a tu área de preparación.
-Confirmas los cambios, lo que toma los archivos tal y como están en el área de preparación, y almacena esas instantáneas de manera permanente en tu directorio de Git.
+Confirmas los cambios, lo que toma los archivos tal y como están en el área de preparación, 
+y almacena esas instantáneas de manera permanente en tu directorio de Git.
 
 $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
