@@ -1,4 +1,5 @@
 clementinapirlo3000@gmail.com
+clementinapirlo3000
 cl3m3nt1n4
 https://github.com/clementinapirlo3000/clementina.git
 
@@ -124,13 +125,7 @@ git remote -v
 
 ------------------------------------------------------------------------------------------
 
-touch README.md
-git init
-git add README.md
-git commit -m "comentario"
-git remote add origin https://github.com/LuchoCastillo/Repositorio.git
-git push -u origin master
-
+Enviendo la vaina a GitHub
 git remote add origin https://github.com/clementinapirlo3000/clementina.git
 git push -u origin master
 
