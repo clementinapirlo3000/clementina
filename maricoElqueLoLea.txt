@@ -1,0 +1,127 @@
+clementinapirlo3000@gmail.com
+cl3m3nt1n4
+https://github.com/clementinapirlo3000/clementina.git
+
+test-one-yujulu
+
+https://git-scm.com/book/es/v1/Fundamentos-de-Git-Guardando-cambios-en-el-repositorio
+http://aprendegit.com/opciones-del-comando-git-add/
+https://guides.github.com/activities/hello-world/
+
+La jerga:
+commit - confirmaciones
+(“Changes not staged for commit”) (es decir, sin preparar)
+
+GIT
+
+Git tiene tres estados principales en los que se pueden encontrar tus archivos: 
+confirmado (committed)
+modificado (modified)
+preparado (staged)
+
+Esto nos lleva a las tres secciones principales de un proyecto de Git:
+	1. el directorio de Git (Git directory)
+	2. el directorio de trabajo (working directory)
+	3. área de preparación (staging area).
+
+El flujo de trabajo básico en Git es algo así:
+
+Modificas una serie de archivos en tu directorio de trabajo.
+Preparas los archivos, añadiendolos a tu área de preparación.
+Confirmas los cambios, lo que toma los archivos tal y como están en el área de preparación, y almacena esas instantáneas de manera permanente en tu directorio de Git.
+
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+
+editor de texto
+$ git config --global core.editor caja
+
+Editor de diferencias
+$ git config --global merge.tool meld
+
+lista propiedades configuradas
+$ git config --list
+
+Comprobar valores
+$ git config user.name
+Scott Chacon
+
+Obteniendo ayuda
+$ git help <comando>
+$ git <comando> --help
+$ man git-<comando>
+
+Si estás empezando el seguimiento en Git de un proyecto existente, 
+necesitas ir al directorio del proyecto y escribir:
+git init
+
+Comprobando el estado de tus archivos
+$ git status
+# On branch master
+nothing to commit, working directory clean
+
+Para especificar qué archivos quieres controlar
+seguidos de un commit para confirmar los cambios:
+git .
+git add *.c
+git add README
+git commit –m 'versión inicial del proyecto'
+
+Clonando un repositorio existente:
+git clone [url]
+git clone git://github.com/schacon/grit.git
+
+Ese comando hace lo mismo que el anterior, pero el directorio de destino se llamará mygrit.
+git clone git://github.com/schacon/grit.git mygrit
+
+Recuerda que cada archivo de tu directorio de trabajo puede estar en uno de estos dos estados: 
+1. bajo seguimiento (tracked)
+Los archivos bajo seguimiento son aquellos que existían en la última instantánea,
+ pueden estar sin modificaciones, modificados, o preparados
+2. sin seguimiento (untracked) . 
+Los archivos sin seguimiento son todos los demás —cualquier archivo de tu directorio 
+que no estuviese en tu última instantánea ni está en tu área de preparación—. 
+La primera vez que clonas un repositorio, todos tus archivos estarán bajo seguimiento 
+y sin modificaciones, ya que los acabas de copiar y no has modificado nada.
+
+Ignorando archivos:
+cat .gitignore
+*.[oa]
+*~
+
+Para ver lo que has modificado pero aún no has preparado, escribe:
+git diff
+
+Si quieres ver los cambios que has preparado y que irán en tu próxima confirmación, puedes usar 
+git diff –-cached
+
+A partir de la versión 1.6.1 de Git, también puedes usar 
+git diff –-staged
+que puede resultar más fácil de recordar.
+Este comando compara tus cambios preparados con tu última confirmación:
+
+Eliminando archivos: (“Changes not staged for commit”) (es decir, sin preparar)
+rm grit.gemspec
+
+Moviendo archivos
+git mv file_from file_to
+
+Viendo el histórico de confirmaciones:
+git log
+git -p
+git -2
+git -p -2
+
+Usando un interfaz gráfico para visualizar el histórico
+gitk
+OJO: gitk ahorra conocer un coñazo de comando ladillas
+
+Añadiendo repositorios remotos
+git remote add [nombre] [url]:
+git remote
+git remote -v
+
+
+
+
+

@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.8.1" last-position="453,174" last-zoom="0.7"
+	 default-owner="postgres">
+<database name="proyecto_bd" append-at-eod="true">
+	<appended-sql><![CDATA[/* 
+	NOTA: Las sentencias INSERT son para llenar
+	las tablas maestras y agilizar la vaina, y deben
+	ir ubicadas al final del archivo *.sql
+*/
+
+-- INSERT proyectos.pro_estat
+INSERT INTO proyectos.pro_estat(est_nombr, est_descr) VALUES('p','Activado');
+INSERT INTO proyectos.pro_estat(est_nombr, est_descr) VALUES('p','Inactivo');
+INSERT INTO proyectos.pro_estat(est_nombr, est_descr) VALUES('p','Eliminado');
+INSERT INTO proyectos.pro_estat(est_nombr, est_descr) VALUES('p','Modificado');
+INSERT INTO proyectos.pro_estat(est_nombr, est_descr) VALUES('a','Ejemplo 1');
+INSERT INTO proyectos.pro_estat(est_nombr, est_descr) VALUES('a','Ejemplo 2');
+
+-- INSERT proyectos.pro_asist
+INSERT INTO proyectos.pro_insti(ins_nombr, ins_codig, ins_femod, ins_feing, id_pro_estat_pro_estat)
+VALUES('CORPORACION DE SALUD TACHIRA (CORPO)', 'CORPO', NOW(), NOW(), 1);
+
+-- con primer ingreso no se agrega FEMOD 
+
+-- INSERT proyectos.pro_distr
+INSERT INTO proyectos.pro_distr(dis_nombr, dis_codig, dis_femod, dis_feing, id_pro_estat_pro_estat) 
+	VALUES('Distrito Sanitario No. 1 - (DS1)', 'DS1', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_distr(dis_nombr, dis_codig, dis_femod, dis_feing, id_pro_estat_pro_estat) 
+	VALUES('Distrito Sanitario No. 2 - (DS2)', 'DS2', NOW(), NOW(), 1);	
+INSERT INTO proyectos.pro_distr(dis_nombr, dis_codig, dis_femod, dis_feing, id_pro_estat_pro_estat) 
+	VALUES('Distrito Sanitario No. 3 - (DS3)', 'DS3', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_distr(dis_nombr, dis_codig, dis_femod, dis_feing, id_pro_estat_pro_estat) 
+	VALUES('Distrito Sanitario No. 4 - (DS4)', 'DS4', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_distr(dis_nombr, dis_codig, dis_femod, dis_feing, id_pro_estat_pro_estat)
+ VALUES('Distrito Sanitario No. 5 - (DS5)', 'DS5', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_distr(dis_nombr, dis_codig, dis_femod, dis_feing, id_pro_estat_pro_estat) 
+	VALUES('Distrito Sanitario No. 6 - (DS6)', 'DS6', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_distr(dis_nombr, dis_codig, dis_femod, dis_feing, id_pro_estat_pro_estat) 
+	VALUES('Distrito Sanitario No. 7 - (DS7)', 'DS7', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_distr(dis_nombr, dis_codig, dis_femod, dis_feing, id_pro_estat_pro_estat) 
+	VALUES('Distrito Sanitario No. 8 - (DS8)', 'DS8', NOW(), NOW(), 1);
+
+	
+
+-- INSERT proyectos.pro_asist
+INSERT INTO proyectos.pro_asist(asi_nombr, asi_codig, asi_femod, asi_ing, id_pro_estat_pro_estat) 
+	VALUES('Ambulatorio Rural Tipo I - (ARI)', 'ARI', NOW(), NOW(), 1);	
+INSERT INTO proyectos.pro_asist(asi_nombr, asi_codig, asi_femod, asi_ing, id_pro_estat_pro_estat) 
+	VALUES('Ambulatorio Rural Tipo II - (ARII)', 'ARII', NOW(), NOW(), 1);	
+INSERT INTO proyectos.pro_asist(asi_nombr, asi_codig, asi_femod, asi_ing, id_pro_estat_pro_estat) 
+	VALUES('Ambulatorio Urbano Tipo I - (AUI)', 'AUI', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_asist(asi_nombr, asi_codig, asi_femod, asi_ing, id_pro_estat_pro_estat) 
+	VALUES('Ambulatorio Urbano Tipo II - (AUII)', 'AUII', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_asist(asi_nombr, asi_codig, asi_femod, asi_ing, id_pro_estat_pro_estat) 
+	VALUES('Ambulatorio Urbano Tipo III - (AUIII)', 'AUIII', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_asist(asi_nombr, asi_codig, asi_femod, asi_ing, id_pro_estat_pro_estat) 
+	VALUES('Hospital Tipo I - (HI)', 'HI', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_asist(asi_nombr, asi_codig, asi_femod, asi_ing, id_pro_estat_pro_estat) 
+	VALUES('Hospital Tipo II - (HII)', 'HII', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_asist(asi_nombr, asi_codig, asi_femod, asi_ing, id_pro_estat_pro_estat) 
+	VALUES('Hospital Tipo III - (HIII)', 'HIII', NOW(), NOW(), 1);
+INSERT INTO proyectos.pro_asist(asi_nombr, asi_codig, asi_femod, asi_ing, id_pro_estat_pro_estat) 
+	VALUES('Hospital Tipo IV - (HIV)', 'HIV', NOW(), NOW(), 1);
+
+
+-- INSERT proyectos.pro_sitio
+INSERT INTO proyectos.pro_sitio(sit_nombr, sit_feing, id_pro_estat_pro_estat) VALUES('QUIROFANO', NOW(), 1);
+INSERT INTO proyectos.pro_sitio(sit_nombr, sit_feing, id_pro_estat_pro_estat) VALUES('LABORATORIO', NOW(), 1);
+INSERT INTO proyectos.pro_sitio(sit_nombr, sit_feing, id_pro_estat_pro_estat) VALUES('EMERGENCIA', NOW(), 1);
+
+-- INSERT proyectos.pro_sujet
+INSERT INTO proyectos.pro_sujet(suj_nombr, suj_feing, id_pro_estat_pro_estat) VALUES('LAYOUT', NOW(), 1);
+INSERT INTO proyectos.pro_sujet(suj_nombr, suj_feing, id_pro_estat_pro_estat) VALUES('PLANO', NOW(), 1);
+INSERT INTO proyectos.pro_sujet(suj_nombr, suj_feing, id_pro_estat_pro_estat) VALUES('VISTA', NOW(), 1);
+INSERT INTO proyectos.pro_sujet(suj_nombr, suj_feing, id_pro_estat_pro_estat) VALUES('CORTES', NOW(), 1);	
+
+-- INSERT proyectos.pro_ramos
+INSERT INTO proyectos.pro_ramos(ram_nombr, ram_feing, id_pro_estat_pro_estat) VALUES('Arquitecto', NOW(), 1);	
+INSERT INTO proyectos.pro_ramos(ram_nombr, ram_feing, id_pro_estat_pro_estat) VALUES('Ing. Civil', NOW(), 1);	
+INSERT INTO proyectos.pro_ramos(ram_nombr, ram_feing, id_pro_estat_pro_estat) VALUES('Ing. Mecanico', NOW(), 1);	
+INSERT INTO proyectos.pro_ramos(ram_nombr, ram_feing, id_pro_estat_pro_estat) VALUES('Ing. Electricista', NOW(), 1);	
+	
+	
+	
+
+]]></appended-sql>
+</database>
+
+<tag name="prueba_tag">
+	<style id="table-body" colors="#5c90c4,#fcfcfc,#808080"/>
+	<style id="table-ext-body" colors="#fcfcfc,#fcfcfc,#808080"/>
+	<style id="table-name" colors="#04e64b"/>
+	<style id="table-schema-name" colors="#000000"/>
+	<style id="table-title" colors="#4aa5ff,#4aa5ff,#20486f"/>
+	<comment><![CDATA[Central del codigo]]></comment>
+</tag>
+<schema name="public" protected="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="proyectos" rect-visible="true" fill-color="#1de024">
+	<role name="postgres"/>
+	<prepended-sql><![CDATA[
+]]></prepended-sql>
+</schema>
+
+<table name="pro_distr">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<position x="739.175" y="173.311"/>
+	<column name="id_pro_distr" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="dis_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="dis_codig" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="dis_femod">
+		<type name="timestamp"/>
+	</column>
+	<column name="dis_feing" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_id_pro_distr" type="pk-constr" table="proyectos.pro_distr">
+		<columns names="id_pro_distr" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="uk_dis_codig" type="uq-constr" table="proyectos.pro_distr">
+		<columns names="dis_codig" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="pro_estat">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<position x="1461.98" y="257.286"/>
+	<column name="id_pro_estat" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="est_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="est_descr" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_id_pro_estat" type="pk-constr" table="proyectos.pro_estat">
+		<columns names="id_pro_estat" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="pro_estat_has_many_pro_distr" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ac2ce6"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_distr"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<table name="pro_asist">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Parte 3: Tipo de ambulatorio u hospital]]></comment>
+	<position x="740.619" y="300.467"/>
+	<column name="id_pro_asist" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="asi_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="asi_codig" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="asi_femod">
+		<type name="timestamp"/>
+	</column>
+	<column name="asi_ing" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_id_pro_asist" type="pk-constr" table="proyectos.pro_asist">
+		<columns names="id_pro_asist" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="uk_asi_codig" type="uq-constr" table="proyectos.pro_asist">
+		<columns names="asi_codig" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="pro_estat_has_many_pro_asist" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#26b403"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_asist"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_insti">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Parte 1: institucion]]></comment>
+	<position x="734.3" y="46"/>
+	<column name="id_pro_insti" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="ins_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="ins_codig" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="ins_femod">
+		<type name="timestamp"/>
+	</column>
+	<column name="ins_feing" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_id_pro_insti" type="pk-constr" table="proyectos.pro_insti">
+		<columns names="id_pro_insti" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="uk_ins_codig" type="uq-constr" table="proyectos.pro_insti">
+		<columns names="ins_codig" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="pro_estat_has_many_pro_insti" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#d218a7"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_insti"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_sitio">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Parte 4: sitio especifico]]></comment>
+	<position x="744.952" y="426.022"/>
+	<column name="id_pro_sitio" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="sit_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="sit_femod">
+		<type name="timestamp"/>
+	</column>
+	<column name="sit_feing" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_id_pro_sitio" type="pk-constr" table="proyectos.pro_sitio">
+		<columns names="id_pro_sitio" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="pro_estat_has_many_pro_sitio" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#dacdb6"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_sitio"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_sujet">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Parte 5: Sujeto del documento]]></comment>
+	<position x="736.397" y="539.467"/>
+	<column name="id_pro_sujet" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="suj_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="suj_femod">
+		<type name="timestamp"/>
+	</column>
+	<column name="suj_feing" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_id_pro_sujet" type="pk-constr" table="proyectos.pro_sujet">
+		<columns names="id_pro_sujet" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="pro_estat_has_many_pro_sujet" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1767a4"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_sujet"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_proye">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<position x="0" y="604.927"/>
+	<column name="id_pro_proye" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="pro_direc">
+		<type name="text"/>
+	</column>
+	<column name="usu_femod">
+		<type name="timestamp"/>
+	</column>
+	<column name="usu_feing" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_id_pro_proye" type="pk-constr" table="proyectos.pro_proye">
+		<columns names="id_pro_proye" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_asist_pro_asist" index="3"/>
+		<object name="id_pro_distr_pro_distr" index="2"/>
+		<object name="id_pro_insti_pro_insti" index="1"/>
+		<object name="id_pro_sitio_pro_sitio" index="4"/>
+		<object name="id_pro_sujet_pro_sujet" index="5"/>
+		<object name="id_pro_usuar_pro_usuar" index="9"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_asist_fk" index="3"/>
+		<object name="pro_distr_fk" index="2"/>
+		<object name="pro_insti_fk" index="1"/>
+		<object name="pro_sitio_fk" index="4"/>
+		<object name="pro_sujet_fk" index="5"/>
+		<object name="pro_usuar_fk" index="6"/>
+	</customidxs>
+</table>
+
+<relationship name="pro_insti_has_many_pro_proye" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#cd42ca"
+	 src-table="proyectos.pro_insti"
+	 dst-table="proyectos.pro_proye"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_distr_has_many_pro_proye" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#796784"
+	 src-table="proyectos.pro_distr"
+	 dst-table="proyectos.pro_proye"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_asist_has_many_pro_proye" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#aab646"
+	 src-table="proyectos.pro_asist"
+	 dst-table="proyectos.pro_proye"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_sitio_has_many_pro_proye" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a2d79b"
+	 src-table="proyectos.pro_sitio"
+	 dst-table="proyectos.pro_proye"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_sujet_has_many_pro_proye" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#65ce70"
+	 src-table="proyectos.pro_sujet"
+	 dst-table="proyectos.pro_proye"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_jerar">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<comment><![CDATA[jerarquias en el area de proyectos]]></comment>
+	<position x="2077.9" y="23"/>
+	<column name="id_pro_jefep" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="jer_nombr" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="jer_jerar" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="jer_femod">
+		<type name="timestamp"/>
+	</column>
+	<column name="jer_feing" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_id_pro_jefep" type="pk-constr" table="proyectos.pro_jerar">
+		<columns names="id_pro_jefep" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="pro_usuar">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<position x="2089.12" y="565.674"/>
+	<column name="id_pro_usuar" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="usu_liter">
+		<type name="char"/>
+	</column>
+	<column name="usu_cedul">
+		<type name="smallint"/>
+	</column>
+	<column name="usu_nomb1">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="usu_nomb2">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="usu_apel1">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="usu_apel2">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="usu_fenac">
+		<type name="date"/>
+	</column>
+	<column name="usu_tehab">
+		<type name="integer"/>
+	</column>
+	<column name="usu_tecel">
+		<type name="integer"/>
+	</column>
+	<column name="usu_direc">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="usu_email">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="usu_login">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="usu_clave">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="usu_sexo">
+		<type name="smallint"/>
+	</column>
+	<column name="usu_femod">
+		<type name="timestamp"/>
+	</column>
+	<column name="usu_feing" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_id_pro_usuar" type="pk-constr" table="proyectos.pro_usuar">
+		<columns names="id_pro_usuar" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="18"/>
+		<object name="id_pro_ramos_pro_ramos" index="17"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="2"/>
+		<object name="pro_ramos_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="pro_ramos">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Ramos profesionales]]></comment>
+	<position x="1599.43" y="819.007"/>
+	<column name="id_pro_ramos" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="ram_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="ram_femod">
+		<type name="timestamp"/>
+	</column>
+	<column name="ram_feing" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_pro_ramos" type="pk-constr" table="proyectos.pro_ramos">
+		<columns names="id_pro_ramos" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="pro_ramos_has_many_pro_usuar" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#930f9c"
+	 src-table="proyectos.pro_ramos"
+	 dst-table="proyectos.pro_usuar"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_usuar_pro_jerar">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<position x="2346.67" y="241"/>
+	<column name="id_pro_usuar_pro_jerar" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="pro_usuar_pro_jerar_femod">
+		<type name="timestamp"/>
+	</column>
+	<column name="pro_usuar_pro_jerar_feing" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_id_pro_usuar_pro_jerar" type="pk-constr" table="proyectos.pro_usuar_pro_jerar">
+		<columns names="id_pro_usuar_pro_jerar" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="5"/>
+		<object name="id_pro_jefep_pro_jerar" index="1"/>
+		<object name="id_pro_usuar_pro_usuar" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="3"/>
+		<object name="pro_jerar_fk" index="1"/>
+		<object name="pro_usuar_fk" index="2"/>
+	</customidxs>
+</table>
+
+<relationship name="pro_jerar_has_many_pro_usuar_pro_jerar" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a62a2f"
+	 src-table="proyectos.pro_jerar"
+	 dst-table="proyectos.pro_usuar_pro_jerar"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_usuar_has_many_pro_usuar_pro_jerar" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#5a350c"
+	 src-table="proyectos.pro_usuar"
+	 dst-table="proyectos.pro_usuar_pro_jerar"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_estat_has_many_pro_jerar" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#e718dc"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_jerar"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_estat_has_many_pro_usuar_pro_jerar" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#42e0f9"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_usuar_pro_jerar"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_estat_has_many_pro_usuar" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#257c08"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_usuar"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_usuar_has_many_pro_proye" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#7a1817"
+	 src-table="proyectos.pro_usuar"
+	 dst-table="proyectos.pro_proye"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_espro">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<position x="602.857" y="847.143"/>
+	<column name="id_pro_espro" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="esp_revis">
+		<type name="text"/>
+	</column>
+	<column name="esp_rev2">
+		<type name="text"/>
+	</column>
+	<column name="esp_minut">
+		<type name="text"/>
+	</column>
+	<column name="esp_urlar">
+		<type name="text"/>
+	</column>
+	<column name="esp_femod">
+		<type name="timestamp"/>
+	</column>
+	<column name="esp_feing" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_pro_espro" type="pk-constr" table="proyectos.pro_espro">
+		<columns names="id_pro_espro" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_proye_pro_proye" index="7"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_proye_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="pro_proye_has_many_pro_espro" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#937e4f"
+	 src-table="proyectos.pro_proye"
+	 dst-table="proyectos.pro_espro"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_estat_has_many_pro_ramos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#0c0a82"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_ramos"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

@@ -1,0 +1,55 @@
+Parte 1. Institucion
+	Corporacion de Salud del Estado Tachira
+Parte 2. Distritos
+	Distrito Sanitario No. 1 - (DS1)
+	Distrito Sanitario No. 2 - (DS2)
+	Distrito Sanitario No. 3 - (DS3)
+	Distrito Sanitario No. 4 - (DS4)
+	Distrito Sanitario No. 5 - (DS5)
+	Distrito Sanitario No. 6 - (DS6)
+	Distrito Sanitario No. 7 - (DS7)
+	Distrito Sanitario No. 8 - (DS8)
+	Distrito Sanitario No. 9 - (DS9)	
+
+Parte 3. Tipo o Ambulatorio o hospital
+	Ambulatorio Rural Tipo I - (ARI)
+	Ambulatorio Rural Tipo II - (ARII)
+	Ambulatorio Urbano Tipo I - (AUI)
+	Ambulatorio Urbano Tipo II - (AUII)
+	Ambulatorio Urbano Tipo III - (AUIII)
+	Hospital Tipo I - (HI)
+	Hospital Tipo II - (HII)
+	Hospital Tipo III - (HIII)
+	Hospital Tipo IV - (HIV)
+
+Parte 4. Sitio especifico
+	Identificara el nombre del sitio especifico o area
+	donde se referencia el documento del plano, Ejemplo:
+	Nombre del area: Quirofano, laboratorio, emergencia.
+
+Parte 5. Sujeto del Documento
+	Esta parte es alfanumerica e identificara al objeto
+	o detalle especifico referencial en el documento; ya sea,
+	para un equipo u otra facilidad dentro del establecimiento 
+	de salud, Ejemplo:
+	- layout o plano
+	-
+
+
+
+Parte 6. Numero de Revision
+
+
+
+
+
+presidencia
+gerencia
+divisiones
+	administracion, planificacion y ppp, proyecto de obra (paz), salud colectiva y redes
+departamentos
+	control de gestion, prensa, bienes nacionales, Kardex, sistemas, rendicion de cuentas
+unidades
+	caja
+		sistemas: soporte tecnico, unidad de sistemas (dev), proyectos
+

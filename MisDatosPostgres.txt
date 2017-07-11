@@ -1,0 +1,23 @@
+$sudo su postgres
+$psql -U postgres
+#CREATE USER antoniot PASSWORD '123456';
+#ALTER ROLE antoniot WITH SUPERUSER;
+
+#Respaldar DB
+postgres@antoniot-c:~$ pg_dump -U postgres pruebaalexPgmodeler > /home/antoniot/Desktop/begin_table_masters.sql 
+
+-- INSERT INTO pro_estat(est_nombr, est_descr)
+-- VALUES ('activo', 'activadisimooooo');
+
+----------------------------------------------------
+
+insert into proyectos.pro_estat(
+  est_nombr, 
+  est_descr
+) 
+values(
+ 'activado',
+ 'activadisimooooo'
+);
+
+----------------------------------------------------

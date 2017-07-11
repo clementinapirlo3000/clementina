@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.8.1" last-position="207,87" last-zoom="0.9"
+	 default-owner="postgres">
+<database name="db_test_at" append-at-eod="true">
+	<appended-sql><![CDATA[/* 
+NOTA: Las sentencias INSERT son para llenar
+las tablas maestras y agilizar la vaina, y deben
+ir ubicadas al final del archivo *.sql.
+
+Se crear la tabla "insert" cada vez que se cree
+un nuevo objeto para mantener los inserts al final
+del archivo
+
+Gracias Alex
+ */
+
+-- TABLA proyectos.pro_estat
+insert into proyectos.pro_estat(est_nombr, est_descr) values('activado','activadisimooooo');
+insert into proyectos.pro_estat(est_nombr, est_descr) values('inactivo','inactivadisimoooo');
+
+-- TABLA proyectos.pro_distr
+insert into proyectos.pro_distr(dis_nombr, id_pro_estat_pro_estat) values('Distrito Sanitario No. 1 - (DS1)', 1);
+insert into proyectos.pro_distr(dis_nombr, id_pro_estat_pro_estat) values('Distrito Sanitario No. 2 - (DS2)', 1);	
+insert into proyectos.pro_distr(dis_nombr, id_pro_estat_pro_estat) values('Distrito Sanitario No. 3 - (DS1)', 1);
+insert into proyectos.pro_distr(dis_nombr, id_pro_estat_pro_estat) values('Distrito Sanitario No. 4 - (DS1)', 1);
+insert into proyectos.pro_distr(dis_nombr, id_pro_estat_pro_estat) values('Distrito Sanitario No. 5 - (DS1)', 1);
+insert into proyectos.pro_distr(dis_nombr, id_pro_estat_pro_estat) values('Distrito Sanitario No. 6 - (DS1)', 1);
+insert into proyectos.pro_distr(dis_nombr, id_pro_estat_pro_estat) values('Distrito Sanitario No. 7 - (DS1)', 1);
+insert into proyectos.pro_distr(dis_nombr, id_pro_estat_pro_estat) values('Distrito Sanitario No. 8 - (DS1)', 1);
+
+
+-- TABLA proyectos.pro_asist
+insert into proyectos.pro_asist(asi_nombr, id_pro_estat_pro_estat) values('Ambulatorio Rural Tipo I - (ARI)', 1);	
+insert into proyectos.pro_asist(asi_nombr, id_pro_estat_pro_estat) values('Ambulatorio Rural Tipo II - (ARII)', 1);	
+insert into proyectos.pro_asist(asi_nombr, id_pro_estat_pro_estat) values('Ambulatorio Urbano Tipo I - (AUI)', 1);
+insert into proyectos.pro_asist(asi_nombr, id_pro_estat_pro_estat) values('Ambulatorio Urbano Tipo II - (AUII)', 1);
+insert into proyectos.pro_asist(asi_nombr, id_pro_estat_pro_estat) values('Ambulatorio Urbano Tipo III - (AUIII)', 1);
+insert into proyectos.pro_asist(asi_nombr, id_pro_estat_pro_estat) values('Hospital Tipo I - (HI)', 1);
+insert into proyectos.pro_asist(asi_nombr, id_pro_estat_pro_estat) values('Hospital Tipo II - (HII)', 1);
+insert into proyectos.pro_asist(asi_nombr, id_pro_estat_pro_estat) values('Hospital Tipo III - (HIII)', 1);
+insert into proyectos.pro_asist(asi_nombr, id_pro_estat_pro_estat) values('Hospital Tipo IV - (HIV)', 1);
+
+-- TABLA proyectos.pro_asist
+insert into proyectos.pro_insti(ins_nombr, id_pro_estat_pro_estat) values('CORPORACION DE SALUD TACHIRA (CORPO)', 1);]]></appended-sql>
+</database>
+
+<tag name="prueba_tag">
+	<style id="table-body" colors="#5c90c4,#fcfcfc,#808080"/>
+	<style id="table-ext-body" colors="#fcfcfc,#fcfcfc,#808080"/>
+	<style id="table-name" colors="#04e64b"/>
+	<style id="table-schema-name" colors="#000000"/>
+	<style id="table-title" colors="#4aa5ff,#4aa5ff,#20486f"/>
+	<comment><![CDATA[Central del codigo]]></comment>
+</tag>
+<schema name="public" protected="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="proyectos" rect-visible="true" fill-color="#1de024">
+	<role name="postgres"/>
+	<prepended-sql><![CDATA[
+]]></prepended-sql>
+</schema>
+
+<table name="pro_distr">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<position x="884.89" y="223.288"/>
+	<column name="id_pro_distr" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="dis_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="dis_codig" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_id_pro_distr" type="pk-constr" table="proyectos.pro_distr">
+		<columns names="id_pro_distr" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="uk_dis_codig" type="uq-constr" table="proyectos.pro_distr">
+		<columns names="dis_codig" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="pro_estat">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<position x="1469.22" y="140.555"/>
+	<column name="id_pro_estat" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="est_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="est_descr" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_id_pro_estat" type="pk-constr" table="proyectos.pro_estat">
+		<columns names="id_pro_estat" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="pro_estat_has_many_pro_distr" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ac2ce6"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_distr"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<table name="pro_asist">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Parte 3: Tipo de ambulatorio u hospital]]></comment>
+	<position x="885.223" y="322.666"/>
+	<column name="id_pro_asist" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="asi_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<column name="asi_codig" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_id_pro_asist" type="pk-constr" table="proyectos.pro_asist">
+		<columns names="id_pro_asist" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="uk_asi_codig" type="uq-constr" table="proyectos.pro_asist">
+		<columns names="asi_codig" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="pro_estat_has_many_pro_asist" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#26b403"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_asist"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_insti">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Parte 1: institucion]]></comment>
+	<position x="884.459" y="119.311"/>
+	<column name="id_pro_insti" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="ins_nombr">
+		<type name="text"/>
+	</column>
+	<column name="ins_codig" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_id_pro_insti" type="pk-constr" table="proyectos.pro_insti">
+		<columns names="id_pro_insti" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="uk_ins_codig" type="uq-constr" table="proyectos.pro_insti">
+		<columns names="ins_codig" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="pro_estat_has_many_pro_insti" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#d218a7"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_insti"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_sitio">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Parte 4: sitio especifico]]></comment>
+	<position x="885.111" y="419.333"/>
+	<column name="id_pro_sitio" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="sit_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_id_pro_sitio" type="pk-constr" table="proyectos.pro_sitio">
+		<columns names="id_pro_sitio" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_estat_pro_estat" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_estat_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="pro_estat_has_many_pro_sitio" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#dacdb6"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_sitio"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_sujet">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<comment><![CDATA[Parte 5: Sujeto del documento]]></comment>
+	<position x="882.111" y="518.333"/>
+	<column name="id_pro_sujet" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="suj_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_id_pro_sujet" type="pk-constr" table="proyectos.pro_sujet">
+		<columns names="id_pro_sujet" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="pro_estat_has_many_pro_sujet" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1767a4"
+	 src-table="proyectos.pro_estat"
+	 dst-table="proyectos.pro_sujet"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_proye">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<position x="350.778" y="225.222"/>
+	<column name="id_pro_proye" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="pro_revis" not-null="true">
+		<type name="text"/>
+		<comment><![CDATA[parte 6: numero de revision rev-xx (00-99)]]></comment>
+	</column>
+	<column name="pro_revi2">
+		<type name="text"/>
+		<comment><![CDATA[parte 6: numero de revision rev-xx-xx   [rev-(a/c/m/e)-(00-99)]]]></comment>
+	</column>
+	<column name="pro_minut" not-null="true">
+		<type name="text"/>
+		<comment><![CDATA[descripcion de la minuta]]></comment>
+	</column>
+	<column name="pro_archi">
+		<type name="text"/>
+		<comment><![CDATA[url del archivo digital]]></comment>
+	</column>
+	<column name="pro_direc">
+		<type name="text"/>
+	</column>
+	<column name="pro_fechi" not-null="true">
+		<type name="date"/>
+		<comment><![CDATA[fecha de insercion]]></comment>
+	</column>
+	<column name="pro_fechu" not-null="true">
+		<type name="date"/>
+	</column>
+	<constraint name="pk_id_pro_proye" type="pk-constr" table="proyectos.pro_proye">
+		<columns names="id_pro_proye" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_pro_asist_pro_asist" index="3"/>
+		<object name="id_pro_distr_pro_distr" index="2"/>
+		<object name="id_pro_insti_pro_insti" index="1"/>
+		<object name="id_pro_sitio_pro_sitio" index="4"/>
+		<object name="id_pro_sujet_pro_sujet" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="pro_asist_fk" index="3"/>
+		<object name="pro_distr_fk" index="2"/>
+		<object name="pro_insti_fk" index="1"/>
+		<object name="pro_sitio_fk" index="4"/>
+		<object name="pro_sujet_fk" index="5"/>
+	</customidxs>
+</table>
+
+<relationship name="pro_insti_has_many_pro_proye" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#cd42ca"
+	 src-table="proyectos.pro_insti"
+	 dst-table="proyectos.pro_proye"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_distr_has_many_pro_proye" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#796784"
+	 src-table="proyectos.pro_distr"
+	 dst-table="proyectos.pro_proye"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_asist_has_many_pro_proye" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#aab646"
+	 src-table="proyectos.pro_asist"
+	 dst-table="proyectos.pro_proye"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_sitio_has_many_pro_proye" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a2d79b"
+	 src-table="proyectos.pro_sitio"
+	 dst-table="proyectos.pro_proye"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="pro_sujet_has_many_pro_proye" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#65ce70"
+	 src-table="proyectos.pro_sujet"
+	 dst-table="proyectos.pro_proye"
+	 src-required="false" dst-required="false"/>
+
+<table name="pro_jefep">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<comment><![CDATA[jefe del departamento de proyectos]]></comment>
+	<position x="347.778" y="562.222"/>
+	<column name="id_pro_jefep" not-null="true">
+		<type name="serial"/>
+	</column>
+	<constraint name="pk_id_pro_jefep" type="pk-constr" table="proyectos.pro_jefep">
+		<columns names="id_pro_jefep" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="pro_usuar">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<position x="346.667" y="628.889"/>
+	<column name="id_pro_usuar" not-null="true">
+		<type name="serial"/>
+	</column>
+	<constraint name="pk_id_pro_usuar" type="pk-constr" table="proyectos.pro_usuar">
+		<columns names="id_pro_usuar" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="pro_ramos">
+	<schema name="proyectos"/>
+	<role name="postgres"/>
+	<position x="348.889" y="490"/>
+	<column name="id_pro_ramos" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="ram_nombr" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_pro_ramos" type="pk-constr" table="proyectos.pro_ramos">
+		<columns names="id_pro_ramos" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+</dbmodel>
