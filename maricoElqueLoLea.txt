@@ -122,7 +122,17 @@ git remote add [nombre] [url]:
 git remote
 git remote -v
 
+------------------------------------------------------------------------------------------
 
+touch README.md
+git init
+git add README.md
+git commit -m "comentario"
+git remote add origin https://github.com/LuchoCastillo/Repositorio.git
+git push -u origin master
+
+git remote add origin https://github.com/clementinapirlo3000/clementina.git
+git push -u origin master
 
 
 
